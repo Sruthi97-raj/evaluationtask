@@ -1,0 +1,41 @@
+.login .left_box{
+    height: 100%;
+     width: 50%;
+     
+     float: left;
+     /* z-index: 1; */
+     top: 0;
+     /* overflow-x: hidden; */
+     padding-top: 70px;
+   }
+   
+   .login .form input{
+    
+    width: 250px;
+    border: 0;
+    
+    padding: 10px;
+    
+    font-size: 14px;
+    outline: 1 white;
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    border: 2px solid #ede6f1;
+    padding-left: 45px;
+}
+.login .form button{
+    outline: 0;
+    text-transform: uppercase;
+    color: white;
+    width: 300px;
+    border: 2px solid #d62828;
+    border-radius: 25px;
+    padding: 10px;
+    background:#d62828;
+    cursor: pointer;
+}
+
+.login .login-left-box #p1{
+    padding-left: 40px; 
+
+}

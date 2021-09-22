@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import logo from '../../assets/logo.jpg'
 import './Login.css'
 import { Link } from 'react-router-dom';
+import HOCComponent from './HOCComponent';
 
-function Login() {
-    
+function Login(props) {
+
     const[username,setUsername]=useState("");
     const [password,setPassword]=useState("");
 
@@ -16,7 +17,7 @@ function Login() {
 
             <div className="left_box">
                 <h2>WELCOME TO</h2>
-                <img src={logo} alt="logo"/>
+                <img src={props.logo} alt="logo"/>
 
                 <p id="p1" > <p id="p1">Login in to get in the moment updates on the things </p>
                <tab></tab> <p id="p2">that interest you</p></p>
@@ -40,4 +41,4 @@ function Login() {
     )
 }
 
-export default Login
+export default HOCComponent(Login);

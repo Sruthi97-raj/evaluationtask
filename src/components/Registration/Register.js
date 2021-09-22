@@ -1,31 +1,41 @@
 import React from 'react'
 import { Button, TextField } from '@material-ui/core'
 import './register.css'
-import logo from '../../assets/logo.jpg'
+// import logo from '../../assets/logo.jpg'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Check } from '@material-ui/icons';
+import HOCComponent from './HOCComponent';
 
 // import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
-function Register() {
+function Register(props) {
     const[username,setUserName]=useState("");
     const [password,setPassword]=useState("");
     const [email,setEmail]=useState("");
     const [flag,setFlag]=useState(false);
-    
+    const[userFlag,setUserFlag]=useState(true);
+    const[emailFlag,setEmailFlag]=useState(true);
+    const[passwordFlag,setPasswordFlag]=useState(true);
    
 
     function submitHandleRegister(event){
    if(event.target.name==="username"){
        setUserName(event.target.value);
+       setUserFlag(false);
        
    }
        
         if(event.target.name==="email"){
             setEmail(event.target.value);
+            setEmailFlag(false);
+            var email=event.target.value;
+            // var emailValidation=CheckEmail(email);
+
         }
         if(event.target.name==="password"){
             setPassword(event.target.value);
+           
         }
     }
     
@@ -35,6 +45,7 @@ function Register() {
 
         if(!username || !email || !password){
             setFlag(true);
+            alert("Please fill fields");
         }
        else{
            setFlag(true);
@@ -47,13 +58,13 @@ function Register() {
         <div className="register">
             <div className="registerleft-box">
                 <h2>WELCOME TO</h2>
-                 <img src={logo} alt="logo"></img>
+                 <img src={props.logo} alt="logo"></img>
                 <p id="p1">Login in to get in the moment updates on the things </p>
                <tab></tab> <p id="p2">that interest you</p>
 
                 <form className="form" name="register">
                 <i className="fas fa-user inputicon"></i>
-                    <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister}  required/>
+                    <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister}  required />
                     <br/>
                     <br/>
                     <input type="text" name="email" placeholder="Email" value={email} onChange={submitHandleRegister} required/>
@@ -73,4 +84,4 @@ function Register() {
     )
 }
 
-export default Register
+export default HOCComponent(Register);

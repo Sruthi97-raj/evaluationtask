@@ -7,7 +7,8 @@ function HOCComponent(Comp){
     function UpdateComponent(props){
 
         return(
-            <div>
+            <>
+            
            <div style={{float:"right",width:"50%",height:"10%"}}>
                <img src={bgimg} alt="bgimg"/>
                </div>
@@ -15,8 +16,8 @@ function HOCComponent(Comp){
                <Comp
                {...props}
                image={logo}/>
-           </div>
-
+          
+           </>
         );
 
     }

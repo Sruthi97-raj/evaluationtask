@@ -1,0 +1,51 @@
+button{
+    cursor: pointer;
+}
+
+.home #logoutbutton{
+    
+    background-color: white;
+    border:none;
+    font-weight: bold;
+    padding-top: 10px;
+    color: #d62828;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.home #selectbutton{
+    background-color: white;
+    border: none;
+    
+    color: cornflowerblue;
+    font-size: 30px;
+    outline: none;
+    display: flex;
+    
+}
+
+.home .header .left{
+   padding-bottom: inherit;
+    /* padding-right: 900px; */
+    display: flex;
+    float: left;
+    
+}
+.home .header .right{
+    text-align: right;
+    float: right;
+    
+    
+}
+.home .header #selectbutton.selected{
+    border-bottom: 4px solid cornflowerblue;
+    
+    
+}
+.home .header{
+    padding: 10px;
+   
+    
+}

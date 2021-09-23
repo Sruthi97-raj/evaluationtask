@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Check } from '@material-ui/icons';
 import HOCComponent from './HOCComponent';
 
+
 // import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 function Register(props) {
@@ -58,13 +59,13 @@ function Register(props) {
         <div className="register">
             <div className="registerleft-box">
                 <h2>WELCOME TO</h2>
-                 <img src={props.logo} alt="logo"></img>
+                 <img src={props.image} alt="logo"></img>
                 <p id="p1">Login in to get in the moment updates on the things </p>
                <tab></tab> <p id="p2">that interest you</p>
 
                 <form className="form" name="register">
                 <i className="fas fa-user inputicon"></i>
-                    <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister}  required />
+                    <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister}  required  />
                     <br/>
                     <br/>
                     <input type="text" name="email" placeholder="Email" value={email} onChange={submitHandleRegister} required/>

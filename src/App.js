@@ -1,9 +1,11 @@
 import React from 'react'
 import './App.css';
-import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link,Switch,Redirect } from "react-router-dom";
 import Register from './components/Registration/Register';
 import { Component } from 'react';
 import Login from './components/Registration/Login';
+import HomePage from './components/Postlogin/Home/HomePage';
+
 
 
 
@@ -15,6 +17,8 @@ import Login from './components/Registration/Login';
        <Switch>
          <Route exact path="/Register" component={Register}/>
          <Route  exact path="/Login"   component={Login}/>
+         <Route path="/HomePage"    component={HomePage}/>
+         <Redirect to="/Login" />
        </Switch>
       </div>
       </BrowserRouter>

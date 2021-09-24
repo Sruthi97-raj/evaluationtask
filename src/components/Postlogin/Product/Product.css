@@ -1,0 +1,42 @@
+product #title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+  .product #productdata {
+    /* position: absolute; */
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+  .product  #productdata td, #productdata th {
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+  }
+  
+  .product  #productdata th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+  .product .loader{
+    position: relative;
+    top: 200px;
+    height: 200%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+}
+.product select{
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.product tr:nth-child(even){background-color: #f2f2f2;}
+
+.product tr:hover {background-color: #ddd;}

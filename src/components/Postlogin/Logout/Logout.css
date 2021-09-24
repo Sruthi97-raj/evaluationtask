@@ -29,6 +29,15 @@
     text-align: center;
   }
   
+  
+  .logoutbox #button{
+    background-color: wheat;
+    color: grey;
+    font-size: large;
+    padding: 10px;  
+    cursor: pointer;
+    border: none;
+  }
   .logoutpopup .logoutclose-icon {
     content: 'x';
     cursor: pointer;
@@ -43,12 +52,4 @@
     text-align: center;
     border: 1px solid #999;
     font-size: 20px;
-  }
-  .logoutbox #button{
-    background-color: wheat;
-    color: grey;
-    font-size: large;
-    padding: 10px;  
-    cursor: pointer;
-    border: none;
   }

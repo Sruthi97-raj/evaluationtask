@@ -30,11 +30,10 @@ function togglePopup() {
              </span>
 
              <span className="right">
-                 <Button value="Click to popup" id="logoutButton" onClick={togglePopup}>Logout</Button>
-
-                 {open && <Logout
+                <button value="Click to open Popup" id="logoutbutton" onClick={togglePopup}>Logout</button></span>
+                {open && <Logout
                     handleClose={togglePopup} />}
-             </span>
+
          </div>
 
          {selectedMenu ==='Product' ? (<Product/>) : (<Dashboard />)} 

@@ -39,3 +39,7 @@
     padding-bottom: 10px;
     cursor: pointer;
 }
+.register .error{
+    font-size: 12px;
+    font-style: italic;
+}

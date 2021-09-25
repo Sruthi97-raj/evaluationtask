@@ -41,7 +41,7 @@
   .logoutpopup .logoutclose-icon {
     content: 'x';
     cursor: pointer;
-    position: fixed;
+    position:fixed;
     right: calc(31% - 10px);
     top: calc(100vh - 65vh - 10px);
     background: #ededed;

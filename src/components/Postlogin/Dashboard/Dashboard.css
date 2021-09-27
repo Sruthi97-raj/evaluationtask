@@ -38,3 +38,24 @@
     
     
 }
+
+.captionTask{
+    font-weight: bold;
+}
+.item{
+    width:40vh;
+    height: 70px;
+    background-color: #ffffff;
+    /* margin-left: 20px; */
+    margin-top: 5px;
+    border-radius: 5px 5px;
+    z-index: 4;
+    transition: 1s;
+    
+    color: rgb(15, 14, 14);
+    /* opacity: 80%; */
+    text-align: left;
+    padding: 2px 15px;
+    overflow-x: none;
+    
+}

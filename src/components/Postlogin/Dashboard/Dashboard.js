@@ -8,7 +8,7 @@ import {TaskAdding} from '../../../redux/action'
 function Dashboard(props) {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [toDo,setToDo]=useState([]);
+    const [todo,setToDo]=useState([]);
     const [progress,setProgress]=useState([]);
     const [completed,setCompleted]=useState([]);
     const [tested,setTested]=useState([]);
@@ -27,9 +27,9 @@ function Dashboard(props) {
 
     if(taskdetails){
         setToDo(taskdetails.filter(item =>item.category ==='todo' && item.UserName ===person))
-        setProgress(taskdetails.filter(item =>item.category === 'progress' && item.Username === person))
-        setCompleted(taskdetails.filter(item =>item.category==='tested' && item.Username ===person))
-        setTested(taskdetails.filter(item =>item.category ==='task' && item.Username===person))
+        setProgress(taskdetails.filter(item =>item.category === 'progress' && item.UserName === person))
+        setCompleted(taskdetails.filter(item =>item.category==='tested' && item.UserName ===person))
+        setTested(taskdetails.filter(item =>item.category ==='task' && item.UserName===person))
     }
     
   },[])
@@ -96,7 +96,7 @@ function Dashboard(props) {
         console.log("", data)
         setTask(data)
         window.localStorage.setItem('UserTask_Details', JSON.stringify(task))
-        setToDo(data.filter(item => item.category === 'Todo' && item.userName === logged))
+        setToDo(data.filter(item => item.category === 'todo' && item.userName === logged))
         setProgress(data.filter(item => item.category === 'progress' && item.userName === logged))
         setCompleted(data.filter(item => item.category === 'completed' && item.userName ===logged))
         setTested(data.filter(item => item.category === 'tested' && item.userName ===logged))
@@ -111,7 +111,7 @@ function Dashboard(props) {
                     onDrop={(e) => onDrop(e, 'todo')}>
                     <div class="captionTask">To Do</div>
                     <div className="AddTask">
-                        {toDo.map((item) => (
+                        {todo.map((item) => (
                             <div className='item'
                                 draggable
                                 onDragStart={(e) => drangHandler(e, item)}>
@@ -122,7 +122,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("Todo")}>Add a card...</button>
+                    <button onClick={() => addToggle("todo")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}
@@ -137,7 +137,7 @@ function Dashboard(props) {
                     onDrop={(e) => onDrop(e, 'progress')}>
                     <div class="captionTask">Progress</div>
                     <div className="AddTask">
-                        {toDo.map((item) => (
+                        {progress.map((item) => (
                             <div className='item'
                                 draggable
                                 onDragStart={(e) => drangHandler(e, item)}>
@@ -161,7 +161,7 @@ function Dashboard(props) {
                     onDrop={(e) => onDrop(e, 'completed')}>
                     <div class="captionTask">Completed</div>
                     <div className="AddTask">
-                        {toDo.map((item) => (
+                        {completed.map((item) => (
                             <div className='item'
                                 draggable
                                 onDragStart={(e) => drangHandler(e, item)}>
@@ -186,7 +186,7 @@ function Dashboard(props) {
                     onDrop={(e) => onDrop(e, 'tested')}>
                     <div class="captionTask">Tested</div>
                     <div className="AddTask">
-                        {toDo.map((item) => (
+                        {tested.map((item) => (
                             <div className='item'
                                 draggable
                                 onDragStart={(e) => drangHandler(e, item)}>
@@ -197,7 +197,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("testedd")}>Add a card...</button>
+                    <button onClick={() => addToggle("tested")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}
@@ -209,7 +209,7 @@ function Dashboard(props) {
     );
 };
 
-const mapStateToProps = ({actionDetails}) =>{
+const mapStateToProps = ({actionDetails}) => { 
     console.log("todo task",actionDetails.taskuser)
     return{
         task:actionDetails.taskuser
@@ -219,8 +219,8 @@ const mapStateToProps = ({actionDetails}) =>{
 const mapDispatchToProps =(dispatch) =>{
     return{
         
-        3:(s) =>{ dispatch(TaskAdding(s))}
+        TaskAdding: (s) =>{ dispatch(TaskAdding(s))}
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

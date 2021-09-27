@@ -57,7 +57,8 @@ function AddTask(props) {
             <div className="box">
                 <span className="close-icon"  onClick={props.handleClose}>X </span>
                 <div>
-               <form >
+                   <div className="captionhead"><h4>Add a Item to</h4>{props.select}</div>
+               <form  > 
                 <TextField className="contentlabel" id="title"  variant="standard" placeholder="Title" name="title" value={title} onChange={setAddHandle} required/>
                <br/>
                <br/>

@@ -43,3 +43,27 @@
     font-size: 12px;
     font-style: italic;
 }
+
+.register .icons{
+    list-style: none;
+    margin: 10px 10px;
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+    color:black;
+    border: 1px solid wheat;
+    border-radius: 50%;
+
+}
+
+.register .inputicon{
+    position: absolute ;
+    margin-right: 18px;
+    margin-top: 1px;
+    width: 44px;
+    padding-top: 8px ;
+    height: 36px;
+    padding-left: 10px;
+    
+
+}

@@ -51,6 +51,8 @@
     border-radius: 5px 5px;
     z-index: 4;
     transition: 1s;
+    margin-left: 2%; 
+    margin-right: 2%; 
     
     color: rgb(15, 14, 14);
     /* opacity: 80%; */

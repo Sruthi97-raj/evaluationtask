@@ -122,7 +122,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("todo")}>Add a card...</button>
+                    <button  className="btnaction" onClick={() => addToggle("todo")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}
@@ -148,7 +148,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("progress")}>Add a card...</button>
+                    <button className="btnaction" onClick={() => addToggle("progress")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}
@@ -172,7 +172,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("completed")}>Add a card...</button>
+                    <button  className="btnaction"onClick={() => addToggle("completed")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}
@@ -197,7 +197,7 @@ function Dashboard(props) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => addToggle("tested")}>Add a card...</button>
+                    <button className="btnaction" onClick={() => addToggle("tested")}>Add a card...</button>
                     {isOpen&& <AddTask
                         select={from}
                         handleClose={addToggle}

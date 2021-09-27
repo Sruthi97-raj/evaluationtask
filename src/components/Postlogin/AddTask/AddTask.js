@@ -30,6 +30,7 @@ function AddTask(props) {
             // setError("plese fill");
         //  <span>{error}</span>  
          alert("Please fill Data")
+       
         }
         else{
             console.log(title);

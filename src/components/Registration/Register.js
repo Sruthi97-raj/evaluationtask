@@ -40,6 +40,7 @@ function Register(props) {
         if(event.target.name==="email"){
             setEmail(event.target.value);
             setEmailFlag(false)
+            
             var email=event.target.value
             var emailValid=emailValidation(email);
             console.log("Email",emailValid)
@@ -54,12 +55,14 @@ function Register(props) {
         if(event.target.name==="password"){
             setPassword(event.target.value);
             setPasswordFlag(false);
+
             var password=event.target.value;
             var passwordValid=passwordValidation(password)
             console.log("Password",passwordValid); 
 
             if(passwordValid===true){
                 setPasswordError(false);
+              
             }
            else{
                setPasswordError(true);
@@ -160,14 +163,14 @@ function Register(props) {
                <tab></tab> <p id="p2">that interest you</p>
 
                 <form className="form" name="register">
-                <i className="fas fa-user inputicon"></i>
+              
                     <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister}  required  /><br/>
                    <span className="error">{userNameErrorMessage}</span><br/>
-                   
+                   <i className="fas fa-at inputicon"></i>
                   
                     <input type="text" name="email" placeholder="Email" value={email} onChange={submitHandleRegister} required/><br/>
                     <span className="error">{emailErrorMessage}</span><br/>
-                   
+                    <i className="fas fa-unlock-alt inputicon"></i>
                   
                     <input type="password" name="password" placeholder="Password" value={password} onChange={submitHandleRegister}required/><br/>
                     <span className="error">{passwordErrorMessage}</span><br/>

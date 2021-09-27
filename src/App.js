@@ -5,6 +5,8 @@ import Register from './components/Registration/Register';
 import { Component } from 'react';
 import Login from './components/Registration/Login';
 import HomePage from './components/Postlogin/Home/HomePage';
+import ProtectedRoute from './protected';
+
 
 
 
@@ -17,8 +19,10 @@ import HomePage from './components/Postlogin/Home/HomePage';
        <Switch>
          <Route exact path="/Register" component={Register}/>
          <Route  exact path="/Login"   component={Login}/>
-         <Route path="/HomePage"    component={HomePage}/>
-         <Redirect to="/Login" />
+        
+         <ProtectedRoute  path="/HomePage"  component={HomePage} /> 
+            <Redirect to="/Login" />
+      
        </Switch>
       </div>
       </BrowserRouter>

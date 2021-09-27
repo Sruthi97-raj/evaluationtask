@@ -2,68 +2,225 @@ import { PowerInputSharp } from '@material-ui/icons';
 import React, { useState } from 'react'
 import './Dashboard.css'
 import AddTask from '../AddTask/AddTask';
-function Dashboard() {
+import { useEffect } from 'react';
+import {connect} from 'react-redux';
+import {TaskAdding} from '../../../redux/action'
+function Dashboard(props) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [toDo,setToDo]=useState([]);
+    const [progress,setProgress]=useState([]);
+    const [completed,setCompleted]=useState([]);
+    const [tested,setTested]=useState([]);
+    const [logged,setLogged]=useState('');
+    const [from, setFrom] = useState('')
+    const [task,setTask]=useState('')
 
-    function addToggle() {
+  useEffect(() =>{
 
+    var person= localStorage.getItem("UserName")
+    console.log("user",person)
+    setLogged(person)
+
+    const taskdetails=JSON.parse(localStorage.getItem('UserTask_Details'));
+    setTask(taskdetails)
+
+    if(taskdetails){
+        setToDo(taskdetails.filter(item =>item.category ==='todo' && item.UserName ===person))
+        setProgress(taskdetails.filter(item =>item.category === 'progress' && item.Username === person))
+        setCompleted(taskdetails.filter(item =>item.category==='tested' && item.Username ===person))
+        setTested(taskdetails.filter(item =>item.category ==='task' && item.Username===person))
+    }
+    
+  },[])
+
+  useEffect(() =>{
+      if(props.task && props.task !== {}){
+          var person=props.task.Username
+          setLogged(person)
+          console.log("Logged Person",logged)
+
+          var taskdetails = JSON.parse(localStorage.getItem("UserTask_Details"))
+
+          if(taskdetails === null){
+              taskdetails=[];
+              taskdetails.push(props.task)
+              console.log("Details",taskdetails)
+              setTask(taskdetails)
+              window.localStorage.setItem('UserTask_Details',JSON.stringify(taskdetails))
+          }
+          else{
+                 taskdetails.push(props.task)
+                 console.log("Details:",taskdetails)
+                 setTask(taskdetails)
+
+                 window.localStorage.setItem('UserTask_Details',JSON.stringify(taskdetails))
+                 console.log("Task",taskdetails[0])
+          }
+          console.log("task",task)
+        let valueFilter=taskdetails.filter(item =>item.category ==='todo')
+        console.log("FilteredValue",valueFilter)
+
+        setToDo(taskdetails.filter(item =>item.category==='todo' && item.UserName ===person))
+        setProgress(taskdetails.filter(item =>item.category==='progress' && item.Username ===person))
+        setCompleted(taskdetails.filter(item =>item.category==='completed' && item.Username ===person))
+        setTested(taskdetails.filter(item =>item.category==='tested' && item.Username ===person))
+
+        props.TaskAdding(null)
+      }
+  },[props.task])
+
+    function addToggle(taskSelected) {
+          
+       setFrom(taskSelected) 
         setIsOpen(!isOpen);
+
+
+    }
+    function drangHandler(e, item) {
+        console.log("dragstart", item)
+        e.dataTransfer.setData("item", JSON.stringify(item))
+    }
+    
+    function onDragOver(e) {
+        e.preventDefault();
+    }
+
+    function onDrop(e,taskSelected) {
+        let item = JSON.parse(e.dataTransfer.getData("item"))
+        console.log('draggable', item)
+        const data= task;
+        let index = task.findIndex(tasks => (tasks.title === item.title && tasks.description === item.description && tasks.category === item.category))
+        item.category = taskSelected
+        data[index] = item
+        console.log("", data)
+        setTask(data)
+        window.localStorage.setItem('UserTask_Details', JSON.stringify(task))
+        setToDo(data.filter(item => item.category === 'Todo' && item.userName === logged))
+        setProgress(data.filter(item => item.category === 'progress' && item.userName === logged))
+        setCompleted(data.filter(item => item.category === 'completed' && item.userName ===logged))
+        setTested(data.filter(item => item.category === 'tested' && item.userName ===logged))
 
 
     }
     return (
         <div className="column">
+           
+ 
+           <div className='row' onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 'todo')}>
+                    <div class="captionTask">To Do</div>
+                    <div className="AddTask">
+                        {toDo.map((item) => (
+                            <div className='item'
+                                draggable
+                                onDragStart={(e) => drangHandler(e, item)}>
+                                <span className="heading">
+                                    {item.title}
+                                </span>
+                                <div className='description'>{item.description}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <button onClick={() => addToggle("Todo")}>Add a card...</button>
+                    {isOpen&& <AddTask
+                        select={from}
+                        handleClose={addToggle}
+                    />}
 
-            <div className="row">
-                <div className="heading"><b>To Do</b></div>
+                </div>
+                 
 
-                <p>Contents to print Progress</p>
-                {isOpen && <AddTask
-                    //   content={<>
-                    //     {/* <input type="text" placeholder="title"/>
-                    //     <br/>
-                    //     <input type="text" placeholder="Description"/>
-                    //     <br/>
-                    //     <button>Test button</button> */}
-                    //   </>}
-                    handleClose={addToggle}
-                />}
 
-                <button className="btnaction" onClick={addToggle} value="Add a Card..."> Add a Card...</button>
-            </div>
+               
+           <div className='row' onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 'progress')}>
+                    <div class="captionTask">Progress</div>
+                    <div className="AddTask">
+                        {toDo.map((item) => (
+                            <div className='item'
+                                draggable
+                                onDragStart={(e) => drangHandler(e, item)}>
+                                <span className="heading">
+                                    {item.title}
+                                </span>
+                                <div className='description'>{item.description}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <button onClick={() => addToggle("progress")}>Add a card...</button>
+                    {isOpen&& <AddTask
+                        select={from}
+                        handleClose={addToggle}
+                    />}
 
-            <div className="row">
-                <div className="heading"><b>Progress</b></div>
-                <p>Contents to print To Do</p>
+                </div>
 
-                {isOpen && <AddTask
 
-                    handleClose={addToggle}
-                />}
-                <button className="btnaction" onClick={addToggle}>Add a Card...</button>
-            </div>
+                <div className='row' onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 'completed')}>
+                    <div class="captionTask">Completed</div>
+                    <div className="AddTask">
+                        {toDo.map((item) => (
+                            <div className='item'
+                                draggable
+                                onDragStart={(e) => drangHandler(e, item)}>
+                                <span className="heading">
+                                    {item.title}
+                                </span>
+                                <div className='description'>{item.description}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <button onClick={() => addToggle("completed")}>Add a card...</button>
+                    {isOpen&& <AddTask
+                        select={from}
+                        handleClose={addToggle}
+                    />}
 
-            <div className="row">
-                <div className="heading"><b>Completed</b></div>
-                <p>Contents to print Completed</p>
-                
-                {isOpen && <AddTask
-                    handleClose={addToggle}
-                />}
-                <button className="btnaction" onClick={addToggle}>Add a Card...</button>
-            </div>
+                </div>
 
-            <div className="row">
-                <div className="heading"><b>Tested</b></div>
-                <p>Contents to print Tested</p>
-                {isOpen && <AddTask
-                    handleClose={addToggle}
-                />}
-                <button className="btnaction" onClick={addToggle} >Add a Card...</button>
-            </div>
+           
+
+                <div className='row' onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 'tested')}>
+                    <div class="captionTask">Tested</div>
+                    <div className="AddTask">
+                        {toDo.map((item) => (
+                            <div className='item'
+                                draggable
+                                onDragStart={(e) => drangHandler(e, item)}>
+                                <span className="heading">
+                                    {item.title}
+                                </span>
+                                <div className='description'>{item.description}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <button onClick={() => addToggle("testedd")}>Add a card...</button>
+                    {isOpen&& <AddTask
+                        select={from}
+                        handleClose={addToggle}
+                    />}
+
+                </div>
+
         </div>
-    )
+    );
+};
+
+const mapStateToProps = ({actionDetails}) =>{
+    console.log("todo task",actionDetails.taskuser)
+    return{
+        task:actionDetails.taskuser
+    }
 }
 
-export default Dashboard
+const mapDispatchToProps =(dispatch) =>{
+    return{
+        
+        3:(s) =>{ dispatch(TaskAdding(s))}
+    };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

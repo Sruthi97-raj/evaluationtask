@@ -130,7 +130,7 @@ function Register(props) {
 
           }
           else{
-              if(emailError===true && passwordError===false){
+              if(emailError===true || passwordError===false){
                   setEmailErrorMessage(REGISTER_PAGE.EMAIL_VALIDATION_MESSAGE)
               }
               else if(emailError===false && passwordError===true){

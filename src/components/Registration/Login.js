@@ -13,7 +13,7 @@ import { GiPoliceBadge } from "react-icons/gi";
 
 
 function Login(props) {
-    console.log(localStorage.getItem("Username"))
+    console.log(localStorage.getItem("UserName"))
     const[emailOrName,setemailOrName]=useState("");
     const [password,setPassword]=useState("");
     const [emailInputFlag,setEmailInputFlag]=useState(true)

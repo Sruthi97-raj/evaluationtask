@@ -15,12 +15,12 @@ function Product(props) {
         });
     }, [])
 
-    function sortOrder(e) {
+    function sort(e) {
         console.log("Sorting")
         var list = Object.assign([], data)
         if (e.target.name === "orderId") {
             console.log("check if")
-            if (e.target.value === 'ascending') {
+            if (e.target.value === 'Ascending') {
                 console.log("ascending id")
 
                 list.sort((a, b) => a.id - b.id)
@@ -33,7 +33,7 @@ function Product(props) {
 
         else if (e.target.name === "name") {
             console.log("check name  If")
-            if (e.target.value === "ascending") {
+            if (e.target.value === "Ascending") {
                 console.log("ascending name")
                 list.sort((a, b) => a.name.localeCompare(b.name))
             }
@@ -43,7 +43,7 @@ function Product(props) {
         }
 
         else if (e.target.name === "description") {
-            if (e.target.value === 'ascending') {
+            if (e.target.value === 'Ascending') {
                 console.log('description ascending ')
                 list.sort((a, b) => a.description.localeCompare(b.description))
             }
@@ -51,13 +51,15 @@ function Product(props) {
                 list.sort((a, b) => b.description.localeCompare(a.description))
             }
         }
-        else {
-            if (e.target.value === 'ascending') {
+        else{
+            if (e.target.value === 'Ascending') {
+              
+                list.sort((a, b) => a.price - b.price)
                 console.log('price ascending')
-                list.sort((a, b) => a.id - b.id)
             }
             else {
-                list.sort((a, b) => b.id - a.id)
+                list.sort((a, b) => b.price - a.price)
+                console.log('price descending')
             }
 
         }
@@ -71,7 +73,7 @@ function Product(props) {
                     <tr>
                         <th> ORDER ID
                             <br />
-                            <select name="orderId" onChange={sortOrder}>
+                            <select name="orderId" onChange={sort}>
                                 <option value="" disabled selected hidden>Sort</option>
                                 <option>Ascending</option>
                                 <option>Descending</option>
@@ -79,27 +81,27 @@ function Product(props) {
                         </th>
                         <th> NAME
                             <br />
-                            <select name="name" onChange={sortOrder}>
+                            <select name="name" onChange={sort}>
                                 <option value="" disabled selected hidden>Sort</option>
-                                <option value="ascending">Ascending</option>
-                                <option value="descending">Descending</option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Descending">Descending</option>
                             </select>
                         </th>
                         <th>DESCRIPTION
                             <br />
-                            <select name="description" onChange={sortOrder}>
+                            <select name="description" onChange={sort}>
                                 <option value="" disabled selected hidden>Sort</option>
-                                <option value="ascending">Ascending</option>
-                                <option value="descending">Descending</option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Descending">Descending</option>
                             </select>
                         </th>
 
                         <th>PRICE
                             <br />
-                            <select name="price" onChange={sortOrder}>
+                            <select name="price" onChange={sort}>
                                 <option value="" disabled selected hidden>Sort</option>
-                                <option value="ascending">Ascending</option>
-                                <option value="descending">Descending</option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Descending">Descending</option>
                             </select>
                         </th>
                     </tr>
@@ -107,8 +109,8 @@ function Product(props) {
                 <tbody>
                     {data.map((product, index, key) => {
                         return (
-                            <tr>
-                                {/* <key>{product.id}</key> */}
+                            <tr key={product.id}>
+                              
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.description}</td>

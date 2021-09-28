@@ -40,8 +40,11 @@
     cursor: pointer;
 }
 .register .error{
-    font-size: 12px;
-    font-style: italic;
+    font-size: 13px;
+    font-style: bold;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .register .icons{

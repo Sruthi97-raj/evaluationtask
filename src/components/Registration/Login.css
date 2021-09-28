@@ -61,3 +61,10 @@
     border-radius: 50%;
 
 }
+
+.register_error{
+    font-size: 13px;
+    font-style: bold;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}

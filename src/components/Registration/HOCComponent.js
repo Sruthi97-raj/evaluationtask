@@ -9,7 +9,7 @@ function HOCComponent(Comp){
         return(
             <>
             
-           <div style={{float:"right",width:"50%",height:"10%"}}>
+           <div style={{float:"right",width:"50%",height:"100%"}}>
                <img src={bgimg} alt="bgimg"/>
                </div>
 

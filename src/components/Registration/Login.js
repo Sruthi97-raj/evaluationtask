@@ -3,13 +3,12 @@ import logo from '../../assets/logo.jpg'
 import './Login.css'
 import { Link } from 'react-router-dom';
 import HOCComponent from './HOCComponent';
-import SearchIcon from "@material-ui/icons/Search";
-import { TextField } from '@material-ui/core';
-import {LOGIN_PAGE} from '../../common/Common';
+// import SearchIcon from "@material-ui/icons/Search";
+// import { TextField } from '@material-ui/core';
+import {LOGIN_PAGE} from '../../common/Constants';
 import { emailValidation }from '../Registration/Validations'
 import {passwordValidation} from '../Registration/Validations';
-import { GiPoliceBadge } from "react-icons/gi"; 
-{/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */}
+
 
 
 function Login(props) {
@@ -37,6 +36,13 @@ function Login(props) {
     function loginSubmit(event) {
         event.preventDefault();
         var user = JSON.parse(localStorage.getItem('User Details'))
+
+        if(emailInputFlag === true){
+            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        }
+        if(passwordInputFlag === true){
+            setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        }
 
         if((emailInputFlag === true)&&(passwordInputFlag === true)){
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
@@ -109,13 +115,13 @@ function Login(props) {
                <form className="form"  method="Post">
                <i className="fas fa-user inputicon"></i>
                  < input type="text" name="name/email" placeholder="Username/Email" value={emailOrName} onChange={loginHandleChange} /><br/>
-                     <span>{emailErrorMessage}</span>
+                     <span className="register_error">{emailErrorMessage}</span>
                   
                      
                      <br/>
 
                     <input type="password" name="password" placeholder="Password" value={password} onChange={loginHandleChange}/><br/>
-                    <span>{passwordError}</span>
+                    <span className="register_error">{passwordError}</span>
                     <br/>
                    
                     <button type="submit" onClick={(event) =>loginSubmit(event)}>SIGN IN</button><br />

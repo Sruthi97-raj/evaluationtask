@@ -11,7 +11,7 @@ function Logout(props) {
     return (
         <div className="logoutpopup">
             <div className="logoutbox">
-                <span className="logoutclose-icon" onClick={props.handleClose}>x</span>
+                <span className="logoutclose-icon" onClick={props.handleClose}></span>
                 <b>Are you sure you want to exit?</b> <br></br>
                 <br></br><button id='button' onClick={popupOk} >Ok</button> &nbsp;
                 <button id='button' onClick={props.handleClose}>Cancel</button>

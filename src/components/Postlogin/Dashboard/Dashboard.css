@@ -2,7 +2,7 @@
     display: flex;
     background-image: linear-gradient(#303f9f, rgb(78, 147, 211));
     width: 100%;
-    height: 100%;
+    height: 100vh;
     flex-wrap: nowrap;
     justify-content: space-evenly;
   

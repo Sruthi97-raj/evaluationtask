@@ -103,13 +103,13 @@ function Register(props) {
             setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
             setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
-        if ((userNameFlag === true) || (emailFlag === true) || (passwordFlag === true)) {
-            alert("Form Registration Please fill all fields...")
-            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
-            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+        // if ((userNameFlag === true) || (emailFlag === true) || (passwordFlag === true)) {
+        //     alert("Form Registration Please fill all fields...")
+            // setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+            // setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+        // setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
 
-        }
+        // }
 
         else {
             if (emailError === false && passwordError === false) {

@@ -61,6 +61,8 @@ function Login(props) {
             var userNameCheck = user.find((item => item.Username === emailOrName))
             console.log("Username:", userNameCheck)
 
+
+
             var emailCheck = user.find((item => item.Email === emailOrName))
 
             if (emailCheck !== undefined && emailCheck.Password === password) {
@@ -92,17 +94,21 @@ function Login(props) {
             else if (userNameCheck === undefined) {
                 var emailValidate = emailValidation(emailOrName)
                 if (emailValidate === true) {
-                    setEmailErrorMessage("")
-                }
-                else {
                     setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
                 }
-            }
-            else {
-                submitValue = 0;
 
+
+            }
+            if (submitValue === 0) {
                 setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
             }
+            // else {
+            //     submitValue = 0;
+
+            //     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+            // }
+
+
             if (submitValue === 1) {
                 setemailOrName("");
                 setPassword("");

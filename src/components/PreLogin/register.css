@@ -6,7 +6,7 @@
     top: 0;
     overflow-x: hidden;
     padding-top: 70px;
-    
+    margin-left: 10%;
    }
    .register .form input{
     
@@ -69,4 +69,16 @@
     padding-left: 10px;
     
 
+}
+.register .paragraph{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    align-content: center;
+
+}
+.register .logocls{
+    margin-left: 15%;
+}
+.register .welcome{
+    margin-left:20%;
 }

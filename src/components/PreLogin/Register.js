@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import HOCComponent from './HOCComponent';
-import { emailValidation } from './Validations'
-import { passwordValidation } from './Validations';
+import { emailValidation } from '../PreLogin/Validations';
+import { passwordValidation } from '../PreLogin/Validations';
 import { REGISTER_PAGE } from '../../common/Constants'
 
 
@@ -167,10 +167,10 @@ function Register(props) {
     return (
         <div className="register">
             <div className="registerleft-box">
-                <h2>WELCOME TO</h2>
-                <img src={props.image} alt="logo"></img>
-                <p id="p1">Login in to get in the moment updates on the things </p>
-                <tab></tab> <p id="p2">that interest you</p>
+                <h3 className="welcome">WELCOME TO</h3>
+                <img className="logocls" src={props.image} alt="logo"></img>
+                <p className="paragraph">Login in to get in the moment updates on the things </p>
+                 <p className="paragraph">that interest you</p>
 
                 <form className="form" name="register">
 

@@ -11,8 +11,8 @@ function HOCComponent(Comp){
         return(
             <>
             
-           <div className="right_img">
-               <img style={{marginLeft:"50%",maxWidth:"100%"}}src={bgimg} alt="bgimg" />
+           <div >
+               <img style={{float:"right",width:"50%",height:"100vh"}}src={bgimg} alt="bgimg" />
                </div>
 
                <Comp

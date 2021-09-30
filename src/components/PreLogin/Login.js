@@ -113,11 +113,11 @@ function Login(props) {
         <div className="login">
 
             <div className="left_box">
-                <h2>WELCOME TO</h2>
+           <h2>WELCOME TO</h2>
                 <img src={props.image} alt="logo"/>
 
-                <p id="p1" > <p id="p1">Login in to get in the moment updates on the things </p>
-               <tab></tab> <p id="p2">that interest you</p></p>
+               <p className="para">Login in to get in the moment updates on the things </p>
+               <p className="para">that interest you</p>
 
                <form className="form"  method="Post">
                <i className="fas fa-user inputicon"></i>

@@ -16,10 +16,10 @@
     text-align: center;
     margin-right: 10px;
     margin: 10px;
-    width: 100%;
+    width: 25%;
     border-radius: 2%;
     /* height: fit-content; */
-   max-width:max-content;
+   /* max-width:max-content; */
 
 
 }
@@ -43,7 +43,9 @@
     font-weight: bold;
 }
 .item{
-    width:40vh;
+    display: flex;
+    flex-direction:row;
+   width: 70%;
     height: 70px;
     background-color: #ffffff;
     /* margin-left: 20px; */

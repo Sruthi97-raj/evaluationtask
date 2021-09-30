@@ -1,13 +1,12 @@
 import React from 'react'
-import { Button, TextField } from '@material-ui/core'
-import './register.css'
-// import logo from '../../assets/logo.jpg'
+
+// import './register.css'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import HOCComponent from './HOCComponent';
-import { emailValidation } from '../Registration/Validations'
-import { passwordValidation } from '../Registration/Validations';
+import { emailValidation } from './Validations'
+import { passwordValidation } from './Validations';
 import { REGISTER_PAGE } from '../../common/Constants'
 
 
@@ -31,6 +30,9 @@ function Register(props) {
 
 
     function submitHandleRegister(event) {
+
+
+
         if (event.target.name === "username") {
             setUserName(event.target.value);
             setUserNameFlag(false)
@@ -75,13 +77,31 @@ function Register(props) {
 
     function registerSubmit(event) {
 
-        
+
         event.preventDefault();
-        if ((userNameFlag === true || emailFlag === true || passwordFlag === true)) {
-            setEmailError(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+
+
+        if ((userNameFlag === true) && (emailFlag === true) && (passwordFlag === true)) {
             setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
+        if ((userNameFlag === true) && (emailFlag === true)) {
+            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+        }
+        if ((userNameFlag === true) && (passwordFlag === true)) {
+            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+        }
+        if ((emailFlag === true) && (passwordFlag === true)) {
+            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+        }
+        if ((userNameFlag === true) || (emailFlag === true) || (passwordFlag === true)) {
+            alert("Form Registration Please fill all fields...")
+        }
+
         else {
             if (emailError === false && passwordError === false) {
                 let details = { Username: username, Email: email, Password: password }
@@ -99,7 +119,7 @@ function Register(props) {
 
                 else {
                     var checkEmail = user.find(item => item.Email === email);
-                    
+
                     var checkUserName = user.find((item => item.Username === username));
                     var checkUserEmail = user.find((item => item.Email === username));
 
@@ -165,7 +185,9 @@ function Register(props) {
 
 
                     <input type="password" name="password" placeholder="Password" value={password} onChange={submitHandleRegister} required /><br />
+                    <span className="error">{passwordErrorMessage}</span>
                     <br />
+
 
                     <button type="submit" onClick={registerSubmit} >Sign Up</button><br />
                 </form>

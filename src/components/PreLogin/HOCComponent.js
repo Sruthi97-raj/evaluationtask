@@ -1,7 +1,9 @@
 
 import React from 'react';
-import bgimg from '../../assets/login_bg.jpg'
-import logo from '../../assets/logo.jpg'
+import bgimg from '../../assets/images/login_bg.jpg'
+import logo from '../../assets/images/logo.jpg'
+// import './HOCComponent.css'
+
 
 function HOCComponent(Comp){
     function UpdateComponent(props){
@@ -9,8 +11,8 @@ function HOCComponent(Comp){
         return(
             <>
             
-           <div style={{float:"right",width:"50%",height:"100%"}}>
-               <img src={bgimg} alt="bgimg"/>
+           <div className="right_img">
+               <img style={{marginLeft:"50%",maxWidth:"100%"}}src={bgimg} alt="bgimg" />
                </div>
 
                <Comp

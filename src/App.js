@@ -1,9 +1,9 @@
 import React from 'react'
-import './App.css';
-import { BrowserRouter, Route, Link,Switch,Redirect } from "react-router-dom";
-import Register from './components/Registration/Register';
-import { Component } from 'react';
-import Login from './components/Registration/Login';
+
+import { BrowserRouter, Route,Switch,Redirect } from "react-router-dom";
+import Register from './components/PreLogin/Register';
+// import { Component } from 'react';
+import Login from './components/PreLogin/Login';
 import HomePage from './components/Postlogin/Home/HomePage';
 import ProtectedRoute from './protected';
 

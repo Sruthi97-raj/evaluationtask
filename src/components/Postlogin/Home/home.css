@@ -4,29 +4,20 @@ button{
 
 .userWelcome{
     font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-}
-.home #logoutbutton{
-    
-    background-color: white;
-    border:none;
-    font-weight: bold;
-    padding-top: 10px;
-    color: #d62828;
-    font-size: 20px;
-    outline: none;
-    cursor: pointer;
-    
+    font-size:12px;
+
 }
 
-.home #selectbutton{
+
+.home #selectButton{
     background-color: white;
     border: none;
-    
-    color: cornflowerblue;
-    font-size: 30px;
+  
+    color: rgb(10, 10, 10);
+    font-size: 25px;
     outline: none;
     display: flex;
+    font-family: 'Times New Roman', Times, serif;
     
 }
 
@@ -37,13 +28,14 @@ button{
     float: left;
     
 }
-.home .header .right{
+/* .home .header .right{
     text-align: right;
     float: right;
+    border: none;
 
     
-}
-.home .header #selectbutton.selected{
+} */
+.home .header #selectButton.selected{
     border-bottom: 4px solid cornflowerblue;
     
     
@@ -54,13 +46,10 @@ button{
     
     
 }
-
-/* .logoutPopup{
-    color:grey;
+.logout_btn{
+    float: right;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
     border: none;
-    background-color: #afbfbf;
-     size: 20px;
-    font-family:sans-serif;
-    cursor: pointer;
-
-} */
+    background-color: white;
+}

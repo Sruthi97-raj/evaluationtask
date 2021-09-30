@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import logo from '../../assets/logo.jpg'
-import './Login.css'
+
+// import './Login.css'
 import { Link } from 'react-router-dom';
 import HOCComponent from './HOCComponent';
-// import SearchIcon from "@material-ui/icons/Search";
-// import { TextField } from '@material-ui/core';
+
 import {LOGIN_PAGE} from '../../common/Constants';
-import { emailValidation }from '../Registration/Validations'
-import {passwordValidation} from '../Registration/Validations';
+import { emailValidation }from './Validations'
+// import {passwordValidation} from '../Registration/Validations';
 
 
 
@@ -19,6 +18,7 @@ function Login(props) {
     const [passwordInputFlag,setPasswordInputFlag]=useState(true)
     const [emailErrorMessage,setEmailErrorMessage]=useState("")
     const [passwordError, setPasswordError] = useState('')
+    const [passwordMessage,setPasswordMessage]=useState('')
     var submitValue = 0;
 
      function loginHandleChange(event){
@@ -37,16 +37,23 @@ function Login(props) {
         event.preventDefault();
         var user = JSON.parse(localStorage.getItem('User Details'))
 
-        if(emailInputFlag === true){
-            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-        }
-        if(passwordInputFlag === true){
-            setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
+        // if(emailInputFlag === true){
+        //     setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        // }
+        // if(passwordInputFlag === true){
+        // //     setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        // setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        // }
 
         if((emailInputFlag === true)&&(passwordInputFlag === true)){
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-            setPasswordInputFlag(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+            setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        }
+        if((emailInputFlag === true) && (passwordInputFlag== false)){
+            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        }
+        if((emailInputFlag === false) && (passwordInputFlag === true)){
+            setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
         else{
             var userNameCheck=user.find((item =>item.Username ===emailOrName))
@@ -121,7 +128,7 @@ function Login(props) {
                      <br/>
 
                     <input type="password" name="password" placeholder="Password" value={password} onChange={loginHandleChange}/><br/>
-                    <span className="register_error">{passwordError}</span>
+                    <span className="register_error">{passwordMessage}</span>
                     <br/>
                    
                     <button type="submit" onClick={(event) =>loginSubmit(event)}>SIGN IN</button><br />

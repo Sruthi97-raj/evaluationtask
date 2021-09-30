@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '@material-ui/core'
-// import { toggleButtonClasses } from '@mui/material';
+
 import Logout from '../Logout/Logout';
 import Dashboard from '../Dashboard/Dashboard';
 import Product from '../Product/Product';
@@ -31,17 +30,19 @@ function togglePopup() {
    
     return (
         <div className="home">
+            <center>
           <div className="userWelcome"> <h1>Welcome {log}</h1> </div> 
+          </center>
          <div className="header">
              <span className="left">
                
-                 <Button id="selectedButton" className={selectedMenu==='Dashboard'?"selected":""}onClick={()=>onClickMenu('Dashbord')}>Dashboard</Button> &nbsp;
-                 <Button id="selectedButton" className={selectedMenu==='Product'?"selected":""} onClick={()=>onClickMenu('Product')}>Product</Button>          
+                 <button id="selectButton" className={selectedMenu==='Dashboard'?"selected":""}onClick={()=>onClickMenu('Dashboard')}>Dashboard</button> &nbsp;
+                 <button id="selectButton" className={selectedMenu==='Product'?"selected":""} onClick={()=>onClickMenu('Product')}>Product</button>          
              </span>
 
              {/* <span className="right"> */}
                  <div >
-                <button  className="clickbtn" value="Click to open Popup" id="logoutbutton" onClick={togglePopup}>Logout</button>
+                <button className="logout_btn" value="Click to open Popup" id="logoutbutton" onClick={togglePopup}>Logout</button>
                 {/* </span> */}
                 {open && <Logout
                     handleClose={togglePopup} />}

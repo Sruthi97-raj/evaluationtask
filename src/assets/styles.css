@@ -1,0 +1,10 @@
+
+
+@import '../components//Postlogin/AddTask/AddTask.css';
+@import '../components/Postlogin/Dashboard/Dashboard.css';
+@import '../components/Postlogin/Home/home.css';
+@import '../components/Postlogin/Logout/Logout.css';
+@import '../components/Postlogin/Product/Product.css';
+@import '../components/PreLogin/HOCComponent.css';
+@import '../components/PreLogin/Login.css';
+@import '../components/PreLogin/register.css';

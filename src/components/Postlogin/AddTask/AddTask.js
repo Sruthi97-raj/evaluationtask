@@ -13,10 +13,10 @@ function AddTask(props) {
     // var error="Please Fill the field before clicking"
     function setAddHandle(e) {
         if (e.target.name === 'title') {
-            setTitle(e.target.value)
+            setTitle(e.target.value.trim())
         }
         if (e.target.name === 'describe') {
-            setDescription(e.target.value)
+            setDescription(e.target.value.trim())
         }
 
 
@@ -37,6 +37,7 @@ function AddTask(props) {
             var selected = props.select
             console.log("Selected", selected)
             var userLogged = localStorage.getItem("UserName")
+
             // console.log("userLogged",userLogged)
             const data = { title: title, description: description, category: props.select, UserName: userLogged }
 

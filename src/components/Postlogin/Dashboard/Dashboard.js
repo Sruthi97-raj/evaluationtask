@@ -36,7 +36,7 @@ function Dashboard(props) {
 
   useEffect(() =>{
       if(props.task && props.task !== {}){
-          var person=props.task.Username
+          var person=props.task.UserName
           setLogged(person)
           console.log("Logged Person",logged)
 
@@ -62,9 +62,9 @@ function Dashboard(props) {
         console.log("FilteredValue",valueFilter)
 
         setToDo(taskdetails.filter(item =>item.category==='todo' && item.UserName ===person))
-        setProgress(taskdetails.filter(item =>item.category==='progress' && item.Username ===person))
-        setCompleted(taskdetails.filter(item =>item.category==='completed' && item.Username ===person))
-        setTested(taskdetails.filter(item =>item.category==='tested' && item.Username ===person))
+        setProgress(taskdetails.filter(item =>item.category==='progress' && item.UserName ===person))
+        setCompleted(taskdetails.filter(item =>item.category==='completed' && item.UserName ===person))
+        setTested(taskdetails.filter(item =>item.category==='tested' && item.UserName ===person))
 
         props.TaskAdding(null)
       }
@@ -96,10 +96,10 @@ function Dashboard(props) {
         console.log("", data)
         setTask(data)
         window.localStorage.setItem('UserTask_Details', JSON.stringify(task))
-        setToDo(data.filter(item => item.category === 'todo' && item.userName === logged))
-        setProgress(data.filter(item => item.category === 'progress' && item.userName === logged))
-        setCompleted(data.filter(item => item.category === 'completed' && item.userName ===logged))
-        setTested(data.filter(item => item.category === 'tested' && item.userName ===logged))
+        setToDo(data.filter(item => item.category === 'todo' && item.UserName === logged))
+        setProgress(data.filter(item => item.category === 'progress' && item.UserName === logged))
+        setCompleted(data.filter(item => item.category === 'completed' && item.UserName ===logged))
+        setTested(data.filter(item => item.category === 'tested' && item.UserName ===logged))
 
 
     }

@@ -17,7 +17,7 @@ function Login(props) {
     const [emailInputFlag,setEmailInputFlag]=useState(true)
     const [passwordInputFlag,setPasswordInputFlag]=useState(true)
     const [emailErrorMessage,setEmailErrorMessage]=useState("")
-    const [passwordError, setPasswordError] = useState('')
+    // const [passwordError, setPasswordError] = useState('')
     const [passwordMessage,setPasswordMessage]=useState('')
     var submitValue = 0;
 
@@ -49,7 +49,7 @@ function Login(props) {
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
             setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
-        if((emailInputFlag === true) && (passwordInputFlag== false)){
+        if((emailInputFlag === true) && (passwordInputFlag=== false)){
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
         }
         if((emailInputFlag === false) && (passwordInputFlag === true)){
@@ -99,7 +99,7 @@ function Login(props) {
              else{
                  submitValue=0;
 
-                 setPasswordError(LOGIN_PAGE.INCORRECT_PASSWORD)
+                 setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
              }
              if(submitValue === 1){
                  setemailOrName("");

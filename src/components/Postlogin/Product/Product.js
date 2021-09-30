@@ -51,9 +51,9 @@ function Product(props) {
                 list.sort((a, b) => b.description.localeCompare(a.description))
             }
         }
-        else{
+        else {
             if (e.target.value === 'Ascending') {
-              
+
                 list.sort((a, b) => a.price - b.price)
                 console.log('price ascending')
             }
@@ -110,7 +110,7 @@ function Product(props) {
                     {data.map((product, index, key) => {
                         return (
                             <tr key={product.id}>
-                              
+
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.description}</td>

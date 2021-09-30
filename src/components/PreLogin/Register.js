@@ -36,12 +36,15 @@ function Register(props) {
         if (event.target.name === "username") {
             setUserName(event.target.value);
             setUserNameFlag(false)
+            setUserNameErrorMessage("")
+
 
         }
 
         if (event.target.name === "email") {
             setEmail(event.target.value);
             setEmailFlag(false)
+            setEmailErrorMessage("")
 
             var email = event.target.value
             var emailValid = emailValidation(email);
@@ -57,6 +60,7 @@ function Register(props) {
         if (event.target.name === "password") {
             setPassword(event.target.value);
             setPasswordFlag(false);
+          setPasswordErrorMessage("")
 
             var password = event.target.value;
             var passwordValid = passwordValidation(password)
@@ -82,6 +86,7 @@ function Register(props) {
 
 
         if ((userNameFlag === true) && (emailFlag === true) && (passwordFlag === true)) {
+           
             setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
             setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
             setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
@@ -100,6 +105,10 @@ function Register(props) {
         }
         if ((userNameFlag === true) || (emailFlag === true) || (passwordFlag === true)) {
             alert("Form Registration Please fill all fields...")
+            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+
         }
 
         else {
@@ -107,7 +116,7 @@ function Register(props) {
                 let details = { Username: username, Email: email, Password: password }
                 var user = JSON.parse(localStorage.getItem('User Details'))
 
-                if (user == null) {
+                if (user === null) {
                     user = [];
                     user.push(details);
 
@@ -144,7 +153,10 @@ function Register(props) {
             }
             else {
                 if (emailError === true || passwordError === false) {
+
+
                     setEmailErrorMessage(REGISTER_PAGE.EMAIL_VALIDATION_MESSAGE)
+
                 }
                 else if (emailError === false && passwordError === true) {
                     setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_VALIDATION_MESSAGE)
@@ -170,7 +182,7 @@ function Register(props) {
                 <h3 className="welcome">WELCOME TO</h3>
                 <img className="logocls" src={props.image} alt="logo"></img>
                 <p className="paragraph">Login in to get in the moment updates on the things </p>
-                 <p className="paragraph">that interest you</p>
+                <p className="paragraph">that interest you</p>
 
                 <form className="form" name="register">
 

@@ -5,21 +5,21 @@ import logo from '../../assets/images/logo.jpg'
 // import './HOCComponent.css'
 
 
-function HOCComponent(Comp){
-    function UpdateComponent(props){
+function HOCComponent(Comp) {
+    function UpdateComponent(props) {
 
-        return(
+        return (
             <>
-            
-           <div >
-               <img style={{float:"right",width:"50%",height:"100vh"}}src={bgimg} alt="bgimg" />
-               </div>
 
-               <Comp
-               {...props}
-               image={logo}/>
-          
-           </>
+                <div >
+                    <img style={{ float: "right", width: "50%", height: "100vh" }} src={bgimg} alt="bgimg" />
+                </div>
+
+                <Comp
+                    {...props}
+                    image={logo} />
+
+            </>
         );
 
     }

@@ -1,11 +1,11 @@
 import { createStore, combineReducers } from "redux";
-import  actionDetails from '../redux/reducer/TaskAddingReducer'
- 
+import actionDetails from '../redux/reducer/TaskAddingReducer'
+
 const appReducers = combineReducers(
     {
-       
-       actionDetails
-       
+
+        actionDetails
+
     }
 );
 

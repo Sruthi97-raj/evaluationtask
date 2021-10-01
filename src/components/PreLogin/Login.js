@@ -39,13 +39,13 @@ function Login(props) {
         event.preventDefault();
         var user = JSON.parse(localStorage.getItem('User Details'))
 
-        // if(emailInputFlag === true){
-        //     setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-        // }
-        // if(passwordInputFlag === true){
-        // //     setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        // setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        // }
+        if(emailInputFlag === true){
+            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        }
+        if(passwordInputFlag === true){
+        //     setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        }
 
         if ((emailInputFlag === true) && (passwordInputFlag === true)) {
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
@@ -59,7 +59,7 @@ function Login(props) {
         }
         else {
             var userNameCheck = user.find((item => item.Username === emailOrName))
-            console.log("Username:", userNameCheck)
+            // console.log("Username:", userNameCheck)
 
 
 
@@ -96,12 +96,25 @@ function Login(props) {
                 if (emailValidate === true) {
                     setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
                 }
+                else{
+                    setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+                }
 
 
             }
-            if (submitValue === 0) {
-                setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
-            }
+           if((userNameCheck !==undefined) &&(passwordInputFlag ===true) ){
+               setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+           }
+        //    if((userNameCheck.Password ===password) &&(emailInputFlag === true)){
+        //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        //    }
+
+            // if (userNameCheck.Password !== password) {
+            //     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+            //     // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+
+            // }
+           
             // else {
             //     submitValue = 0;
 

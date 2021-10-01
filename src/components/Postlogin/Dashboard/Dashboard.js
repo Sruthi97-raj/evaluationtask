@@ -28,8 +28,8 @@ function Dashboard(props) {
         if (taskdetails) {
             setToDo(taskdetails.filter(item => item.category === 'todo' && item.UserName === person))
             setProgress(taskdetails.filter(item => item.category === 'progress' && item.UserName === person))
-            setCompleted(taskdetails.filter(item => item.category === 'tested' && item.UserName === person))
-            setTested(taskdetails.filter(item => item.category === 'task' && item.UserName === person))
+            setCompleted(taskdetails.filter(item => item.category === 'completed' && item.UserName === person))
+            setTested(taskdetails.filter(item => item.category === 'tested' && item.UserName === person))
         }
 
     }, [])

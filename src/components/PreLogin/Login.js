@@ -39,6 +39,10 @@ function Login(props) {
         event.preventDefault();
         var user = JSON.parse(localStorage.getItem('User Details'))
 
+        if(user ===null){
+           return alert("Please Register First")
+        }
+
         if(emailInputFlag === true){
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
         }
@@ -120,7 +124,7 @@ function Login(props) {
 
             //     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
             // }
-
+              
 
             if (submitValue === 1) {
                 setemailOrName("");

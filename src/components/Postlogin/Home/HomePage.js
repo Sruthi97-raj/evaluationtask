@@ -53,7 +53,7 @@ function HomePage() {
 
                
             </div>
-            {selectedMenu === 'Product' ? (<Product/>) : (<Dashboard />)}
+            {selectedMenu === 'Product' ? (<Product/>) : (<Dashboard/>)}
 
        
 

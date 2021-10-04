@@ -1,6 +1,7 @@
 .register .registerleft-box{
     /* height: 100%;
     width: 50%; */
+    width:50%;
     position: fixed;
     z-index: 1;
     /* top: 0; */
@@ -74,7 +75,7 @@
 
 }
 .register .registerleft-box #p1{
-    padding-left: 40px; 
+    padding-left: 10%; 
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
    
@@ -88,6 +89,6 @@
 .register .logocls{
     margin-left: 15%;
 }
-.register .welcome{
+/* .register .welcome{
     margin-left:20%;
-}
+} */

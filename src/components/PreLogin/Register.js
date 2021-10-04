@@ -182,13 +182,11 @@ function Register(props) {
             <div className="registerleft-box">
                 <h3 className="welcome">WELCOME TO</h3>
                 <img className="logocls" src={props.image} alt="logo"></img>
-                <p id="p1">Log 
-                 to get in the moment updates on the things
-              
+                <p id="p1">Log  to get in the moment updates on the things 
+                <br/>
                <p id="p2">that interest you</p> 
-                </p>
-             
-
+               </p>               
+ 
                 <form className="form" name="register">
 
                     <input type="text" name="username" placeholder="Username" value={username} onChange={submitHandleRegister} required /><br />
@@ -210,7 +208,7 @@ function Register(props) {
                 </form>
                 <br />
 
-                Already Register? <Link to="/login" > <span>Sign In Now</span></Link><br />
+             <div>  Already Register? <Link to="/login" > <span>Sign In Now</span></Link><br /></div> 
 
             </div>
         </div>

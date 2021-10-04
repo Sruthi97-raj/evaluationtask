@@ -88,33 +88,36 @@ function Login(props) {
                 props.history.push("/HomePage")
 
             }
-            else if (userNameCheck === undefined) {
+             if (userNameCheck !== undefined) {
                 var emailValidate = emailValidation(emailOrName)
-                if (emailValidate === true) {
-                    setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+                if (emailValidate === false) {
+                 setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
                 }
                 else{
                     console.log("Incorrect")
-                    setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+                  return  setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
                 }
 
 
             }
-            //    if((userNameCheck !==undefined) &&(password ==='') ){
-            //        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-            //    }
-            //    if((userNameCheck.Password ===password) &&(emailOrName ==='')){
-            //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-            //    }
+            if(emailCheck !== undefined){
+             var emailValidate = emailValidation(emailOrName)
 
-                if (userNameCheck.Password !== password) {
-                setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
-                    // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+             if(emailValidate === false){
+                 console.log("INVALid username ")
+                 setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+             }
+             else{
+                 return setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+             }
+            }
 
-                }
+                  
+               
             if (userNameCheck === undefined) {
-                setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+              setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
             }
+          
          
 
 
@@ -160,7 +163,7 @@ function Login(props) {
                 </form>
                 <br />
 
-                Don't have an account?<Link to="/register" > <span>Sign Up Now</span></Link><br />
+              <div> Don't have an account?<Link to="/register" > <span>Sign Up Now</span></Link><br /></div> 
             </div>
 
         </div>

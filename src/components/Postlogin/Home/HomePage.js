@@ -19,8 +19,8 @@ function HomePage() {
 
     function togglePopup() {
         setOpen(!open)
+        
 
-   
     }
 
     function onClickMenu(menu) {
@@ -53,7 +53,6 @@ function HomePage() {
 
                
             </div>
-
             {selectedMenu === 'Product' ? (<Product />) : (<Dashboard />)}
 
        

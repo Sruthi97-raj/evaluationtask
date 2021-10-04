@@ -142,7 +142,7 @@ function Login(props) {
                 <p id="p1">Log in to get in the moment updates on the things
                 <br/>
                <p id="p2">that interest you</p> 
-                </p>
+               </p>
 
                 <form className="form" method="Post">
                     <i className="fas fa-user inputicon"></i>

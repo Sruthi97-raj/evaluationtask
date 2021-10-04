@@ -182,8 +182,9 @@ function Register(props) {
             <div className="registerleft-box">
                 <h3 className="welcome">WELCOME TO</h3>
                 <img className="logocls" src={props.image} alt="logo"></img>
-                <p id="p1">Log in to get in the moment updates on the things
-                <br/>
+                <p id="p1">Log 
+                 to get in the moment updates on the things
+              
                <p id="p2">that interest you</p> 
                 </p>
              

@@ -70,13 +70,13 @@
     font-family: 'Times New Roman', Times, serif;
 }
 .login .left_box #p1{
-    padding-left: 10%; 
+    padding-left: 40px; 
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
    
 }
-.register .left_box #p2{
-    padding-left: 30%; 
+.login .left_box #p2{
+   padding-left: 30%; 
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
    

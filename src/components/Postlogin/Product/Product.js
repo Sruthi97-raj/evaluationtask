@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Product.css'
+
 function Product(props) {
 
     const [data, setData] = useState([])

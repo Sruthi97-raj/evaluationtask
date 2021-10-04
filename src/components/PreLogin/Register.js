@@ -14,16 +14,15 @@ import { REGISTER_PAGE } from '../../common/Constants'
 function Register(props) {
     const [username, setUserName] = useState("");
     const [userNameErrorMessage, setUserNameErrorMessage] = useState("")
-    const [userNameFlag, setUserNameFlag] = useState(true);
-
+   
     const [password, setPassword] = useState("");
-    const [passwordFlag, setPasswordFlag] = useState(true);
+  
     const [passwordError, setPasswordError] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState("")
 
     const [email, setEmail] = useState("");
     // const [flag,setFlag]=useState(false);
-    const [emailFlag, setEmailFlag] = useState(true);
+  
     const [emailError, setEmailError] = useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = useState("");
     var submitvalue = 0;
@@ -35,7 +34,7 @@ function Register(props) {
 
         if (event.target.name === "username") {
             setUserName(event.target.value);
-            setUserNameFlag(false)
+            // setUserNameFlag(false)
             setUserNameErrorMessage("")
 
 
@@ -43,7 +42,7 @@ function Register(props) {
 
         if (event.target.name === "email") {
             setEmail(event.target.value);
-            setEmailFlag(false)
+            // setEmailFlag(false)
             setEmailErrorMessage("")
 
             var email = event.target.value
@@ -59,7 +58,7 @@ function Register(props) {
         }
         if (event.target.name === "password") {
             setPassword(event.target.value);
-            setPasswordFlag(false);
+            // setPasswordFlag(false);
           setPasswordErrorMessage("")
 
             var password = event.target.value;
@@ -85,33 +84,39 @@ function Register(props) {
         event.preventDefault();
 
 
-        if ((userNameFlag === true) && (emailFlag === true) && (passwordFlag === true)) {
+        
+
+       if(username ===''){
+          setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
+        
+       }
+     
+       if(email ===''){
+          setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
+       }
+       else if(emailError===true){
+           console.log("wrong validation for email")
+        setEmailErrorMessage(REGISTER_PAGE.EMAIL_VALIDATION_MESSAGE)
+    }
+    else{
+        setEmailErrorMessage('')
+        console.log("email",email)
+    }
+       
+
+
+       if(password ===''){
            
-            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
-            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
-        if ((userNameFlag === true) && (emailFlag === true)) {
-            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
-            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-        }
-        if ((userNameFlag === true) && (passwordFlag === true)) {
-            setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
-            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
-        if ((emailFlag === true) && (passwordFlag === true)) {
-            setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-            setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
-        // if ((userNameFlag === true) || (emailFlag === true) || (passwordFlag === true)) {
-        //     alert("Form Registration Please fill all fields...")
-            // setUserNameErrorMessage(REGISTER_PAGE.USERNAME_EMPTY_MESSAGE)
-            // setEmailErrorMessage(REGISTER_PAGE.EMAIL_EMPTY_MESSAGE)
-        // setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+           setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_EMPTY_MESSAGE)
+       }
+      else if(passwordError ===true ){
+           setPasswordErrorMessage(REGISTER_PAGE.PASSWORD_VALIDATION_MESSAGE)
+       }
+        
+       
 
-        // }
 
-        else {
+  else {
             if (emailError === false && passwordError === false) {
                 let details = { Username: username, Email: email, Password: password }
                 var user = JSON.parse(localStorage.getItem('User Details'))

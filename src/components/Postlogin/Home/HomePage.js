@@ -8,7 +8,7 @@ import './home.css'
 function HomePage() {
 
     const [open, setOpen] = useState(false);
-    const [selectedMenu, setSelectedMenu] = useState('Dashboard');
+    const [selectedMenu, setSelectedMenu] = useState('');
     const [log, setLog] = useState('')
 
     useEffect(() => {

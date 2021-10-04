@@ -14,8 +14,8 @@ function Login(props) {
     console.log(localStorage.getItem("UserName"))
     const [emailOrName, setemailOrName] = useState("");
     const [password, setPassword] = useState("");
-    const [emailInputFlag, setEmailInputFlag] = useState(true)
-    const [passwordInputFlag, setPasswordInputFlag] = useState(true)
+    
+  
     const [emailErrorMessage, setEmailErrorMessage] = useState("")
     // const [passwordError, setPasswordError] = useState('')
     const [passwordMessage, setPasswordMessage] = useState('')
@@ -23,14 +23,14 @@ function Login(props) {
 
     function loginHandleChange(event) {
 
-        if (event.target.name === 'name/email') {
+        if (event.target.name === 'nameOremail') {
             setemailOrName(event.target.value)
-            setEmailInputFlag(false)
+            // setEmailInputFlag(false)
             setEmailErrorMessage("")
         }
         if (event.target.name === 'password') {
             setPassword(event.target.value)
-            setPasswordInputFlag(false)
+            // setPasswordInputFlag(false)
             setPasswordMessage("")
         }
     }
@@ -40,27 +40,22 @@ function Login(props) {
         var user = JSON.parse(localStorage.getItem('User Details'))
 
         if(user ===null){
+            console.log("Plase reistr")
            return alert("Please Register First")
+           
+        }
+       
+        if(emailOrName===''){
+            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
         }
 
-        if(emailInputFlag === true){
-            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+        if(password ===''){
+        
+            setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
-        if(passwordInputFlag === true){
-        //     setPasswordError(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
+    
 
-        if ((emailInputFlag === true) && (passwordInputFlag === true)) {
-            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-            setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
-        if ((emailInputFlag === true) && (passwordInputFlag === false)) {
-            setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-        }
-        if ((emailInputFlag === false) && (passwordInputFlag === true)) {
-            setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        }
+       
         else {
             var userNameCheck = user.find((item => item.Username === emailOrName))
             // console.log("Username:", userNameCheck)
@@ -106,18 +101,22 @@ function Login(props) {
 
 
             }
-           if((userNameCheck !==undefined) &&(passwordInputFlag ===true) ){
-               setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-           }
-        //    if((userNameCheck.Password ===password) &&(emailInputFlag === true)){
+        //    if((userNameCheck !==undefined) &&(password ==='') ){
+        //        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+        //    }
+        //    if((userNameCheck.Password ===password) &&(emailOrName ==='')){
         //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
         //    }
 
-            // if (userNameCheck.Password !== password) {
-            //     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
-            //     // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+        //     if (userNameCheck.Password !== password) {
+        //         setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+        //         // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
 
-            // }
+        //     }
+        if(userNameCheck ===undefined){
+            setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+        }
+            
            
             // else {
             //     submitValue = 0;
@@ -146,7 +145,7 @@ function Login(props) {
 
                 <form className="form" method="Post">
                     <i className="fas fa-user inputicon"></i>
-                    < input type="text" name="name/email" placeholder="Username/Email" value={emailOrName} onChange={loginHandleChange} /><br />
+                    < input type="text" name="nameOremail" placeholder="Username/Email" value={emailOrName} onChange={loginHandleChange} /><br />
                     <span className="register_error">{emailErrorMessage}</span>
 
 

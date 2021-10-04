@@ -17,11 +17,11 @@ function App() {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path="/Register" component={Register} />
-            <Route exact path="/Login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
 
-            <ProtectedRoute path="/HomePage" component={HomePage} />
-            <Redirect to="/Login" />
+            <ProtectedRoute path="/homePage" component={HomePage} />
+            <Redirect to="/login" />
 
           </Switch>
         </div>

@@ -40,19 +40,6 @@
     cursor: pointer;
 }
 
- .p1{
-    padding-left: 20px; 
-  
-    font-family: 'Times New Roman', Times, serif;
-
-}
-.p2{
-    padding-left:40px; 
-  /* text-align: center; */
-    font-family: 'Times New Roman', Times, serif;
-
-}
-
 .login .icon{
     list-style: none;
     margin: 10px 10px;
@@ -64,7 +51,7 @@
     border-radius: 50%;
 
 }
-.login .icon{
+/* .login .icon{
     list-style: none;
     margin: 10px 10px;
     display: inline-block;
@@ -74,7 +61,7 @@
     border: 1px solid wheat;
     border-radius: 50%;
 
-}
+} */
 
 .register_error{
     font-size: 13px;
@@ -83,7 +70,7 @@
     font-family: 'Times New Roman', Times, serif;
 }
 .login .left_box #p1{
-    padding-left: 40px; 
+    padding-left: 10%; 
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
    
@@ -93,5 +80,11 @@
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
    
+}
+.logocls{
+    margin-left: 15%;
+}
+.login .welcome{
+    margin-left:20%;
 }
 

@@ -137,8 +137,8 @@ function Login(props) {
         <div className="login">
 
             <div className="left_box">
-                <h2>WELCOME TO</h2>
-                <img src={props.image} alt="logo" />
+                <h3  className="welcome">WELCOME TO</h3>
+                <img className="logocls" src={props.image} alt="logo" />
                 <p id="p1">Log in to get in the moment updates on the things
                 <br/>
                <p id="p2">that interest you</p> 

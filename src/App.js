@@ -6,6 +6,8 @@ import Register from './components/PreLogin/Register';
 import Login from './components/PreLogin/Login';
 import HomePage from './components/Postlogin/Home/HomePage';
 import ProtectedRoute from './protected';
+import { Dashboard } from '@material-ui/icons';
+import Product from './components/Postlogin/Product/Product';
 
 
 
@@ -19,7 +21,8 @@ function App() {
           <Switch>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-
+            {/* <Route path="/dashboard"  component={Dashboard}/>
+            <Route path="/product"  component={Product}/> */}
             <ProtectedRoute path="/homePage" component={HomePage} />
             <Redirect to="/homePage" />
 

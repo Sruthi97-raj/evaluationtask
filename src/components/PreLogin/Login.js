@@ -93,7 +93,8 @@ function Login(props) {
                 if (emailValidate === true) {
                     setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
                 }
-                else {
+                else{
+                    console.log("Incorrect")
                     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
                 }
 
@@ -106,14 +107,15 @@ function Login(props) {
             //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
             //    }
 
-            //     if (userNameCheck.Password !== password) {
-            //         setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
-            //         // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+                if (userNameCheck.Password !== password) {
+                setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+                    // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
 
-            //     }
+                }
             if (userNameCheck === undefined) {
                 setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
             }
+         
 
 
             // else {
@@ -137,9 +139,10 @@ function Login(props) {
             <div className="left_box">
                 <h2>WELCOME TO</h2>
                 <img src={props.image} alt="logo" />
-
-                <p className="para">Login in to get in the moment updates on the things </p>
-                <p className="para">that interest you</p>
+                <p id="p1">Log in to get in the moment updates on the things
+                <br/>
+               <p id="p2">that interest you</p> 
+                </p>
 
                 <form className="form" method="Post">
                     <i className="fas fa-user inputicon"></i>

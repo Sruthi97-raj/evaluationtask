@@ -1,8 +1,5 @@
 import React from 'react'
-import './AddTask.css'
 import { useState } from 'react'
-// import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
 import { connect } from 'react-redux'
 import { TaskAdding } from '../../../redux/action'
 function AddTask(props) {
@@ -58,19 +55,19 @@ function AddTask(props) {
             <div className="box">
                 <span className="close-icon" onClick={props.handleClose}>X </span>
                 <div>
-                    <div className="captionhead"><h4>Add a Item </h4></div>
+                    <div className="captionhead"><h4>Add an Item </h4></div>
                     <form className="popupForm" >
 
-                        <input type="text" name="title"  placeholder="Title" onChange={setAddHandle} required />
-                        <br />
-                         <br/>
-                        <textarea type='text' placeholder='Description' name='describe' onChange={setAddHandle} value={description} required /> 
+                        <input type="text" name="title" placeholder="Title" onChange={setAddHandle} required />
                         <br />
                         <br />
-                        
+                        <textarea type='text' placeholder='Description' name='describe' onChange={setAddHandle} value={description} required />
+                        <br />
+                        <br />
+
                         <button className="addTaskbutton" onClick={addData} >Add </button>
-                        <button  className="addTaskbutton" onClick={cancelData}>Cancel</button>
-                       
+                        <button className="addTaskbutton" onClick={cancelData}>Cancel</button>
+
                     </form>
                 </div>
 

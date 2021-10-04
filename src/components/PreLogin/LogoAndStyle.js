@@ -2,10 +2,10 @@
 import React from 'react';
 import bgimg from '../../assets/images/login_bg.jpg'
 import logo from '../../assets/images/logo.jpg'
-// import './HOCComponent.css'
 
 
-function HOCComponent(Comp) {
+
+function LogoAndStyle(Comp) {
     function UpdateComponent(props) {
 
         return (
@@ -25,4 +25,4 @@ function HOCComponent(Comp) {
     }
     return UpdateComponent
 }
-export default HOCComponent;
+export default LogoAndStyle;

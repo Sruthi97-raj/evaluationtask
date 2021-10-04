@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Logout from '../Logout/Logout';
 import Dashboard from '../Dashboard/Dashboard';
 import Product from '../Product/Product';
-import './home.css'
+
 
 function HomePage() {
 
@@ -20,12 +20,15 @@ function HomePage() {
     function togglePopup() {
         setOpen(!open)
 
+   
     }
 
     function onClickMenu(menu) {
         setSelectedMenu(menu)
 
+       
     }
+    
 
 
     return (
@@ -47,9 +50,13 @@ function HomePage() {
                     {open && <Logout
                         handleClose={togglePopup} />}
                 </div>
+
+               
             </div>
 
             {selectedMenu === 'Product' ? (<Product />) : (<Dashboard />)}
+
+       
 
         </div>
     )

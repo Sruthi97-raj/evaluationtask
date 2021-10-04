@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react'
-import './Dashboard.css'
 import AddTask from '../AddTask/AddTask';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';

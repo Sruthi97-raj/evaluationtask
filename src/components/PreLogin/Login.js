@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-
-// import './Login.css'
 import { Link } from 'react-router-dom';
-import HOCComponent from './HOCComponent';
 
 import { LOGIN_PAGE } from '../../common/Constants';
 import { emailValidation } from './Validations'
+import LogoAndStyle from './LogoAndStyle';
 // import {passwordValidation} from '../Registration/Validations';
 
 
@@ -14,8 +12,8 @@ function Login(props) {
     console.log(localStorage.getItem("UserName"))
     const [emailOrName, setemailOrName] = useState("");
     const [password, setPassword] = useState("");
-    
-  
+
+
     const [emailErrorMessage, setEmailErrorMessage] = useState("")
     // const [passwordError, setPasswordError] = useState('')
     const [passwordMessage, setPasswordMessage] = useState('')
@@ -39,23 +37,23 @@ function Login(props) {
         event.preventDefault();
         var user = JSON.parse(localStorage.getItem('User Details'))
 
-        if(user ===null){
+        if (user === null) {
             console.log("Plase reistr")
-           return alert("Please Register First")
-           
+            return alert("Please Register First")
+
         }
-       
-        if(emailOrName===''){
+
+        if (emailOrName === '') {
             setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
         }
 
-        if(password ===''){
-        
+        if (password === '') {
+
             setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
         }
-    
 
-       
+
+
         else {
             var userNameCheck = user.find((item => item.Username === emailOrName))
             // console.log("Username:", userNameCheck)
@@ -95,35 +93,35 @@ function Login(props) {
                 if (emailValidate === true) {
                     setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
                 }
-                else{
+                else {
                     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
                 }
 
 
             }
-        //    if((userNameCheck !==undefined) &&(password ==='') ){
-        //        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
-        //    }
-        //    if((userNameCheck.Password ===password) &&(emailOrName ==='')){
-        //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
-        //    }
+            //    if((userNameCheck !==undefined) &&(password ==='') ){
+            //        setPasswordMessage(LOGIN_PAGE.PASSWORD_EMPTY_MESSAGE)
+            //    }
+            //    if((userNameCheck.Password ===password) &&(emailOrName ==='')){
+            //        setEmailErrorMessage(LOGIN_PAGE.USERNAME_EMPTY_MESSAGE)
+            //    }
 
-        //     if (userNameCheck.Password !== password) {
-        //         setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
-        //         // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+            //     if (userNameCheck.Password !== password) {
+            //         setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
+            //         // setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
 
-        //     }
-        if(userNameCheck ===undefined){
-            setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
-        }
-            
-           
+            //     }
+            if (userNameCheck === undefined) {
+                setEmailErrorMessage(LOGIN_PAGE.VALIDATION_MESSAGE)
+            }
+
+
             // else {
             //     submitValue = 0;
 
             //     setPasswordMessage(LOGIN_PAGE.INCORRECT_PASSWORD)
             // }
-              
+
 
             if (submitValue === 1) {
                 setemailOrName("");
@@ -159,11 +157,11 @@ function Login(props) {
                 </form>
                 <br />
 
-                Don't have an account?<Link to="/Register" > <span>Sign Up Now</span></Link><br />
+                Don't have an account?<Link to="/register" > <span>Sign Up Now</span></Link><br />
             </div>
 
         </div>
     )
 }
 
-export default HOCComponent(Login);
+export default LogoAndStyle(Login);

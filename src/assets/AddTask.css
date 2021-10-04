@@ -12,14 +12,14 @@
     position: relative;
     width:30%;
     margin: 0 auto;
-    height: auto;
+    height: 100vh;
     max-height: 30vh;
     margin-top: calc(100vh - 85vh - 20px);
     background: #fff;
     border-radius: 4px;
     padding: 20px;
     border: 1px solid #999;
-    overflow: auto;
+    overflow: hidden;
   }
    
   .close-icon {
@@ -60,11 +60,16 @@
   }
 .popupForm .input{
 
-  width:250px;
+  /* width:250px;*/
+  height:calc(100% - 45px);
+  flex-direction: row;
+  justify-content: center;
   border:0;
   padding: 10px;
   font-size: 14px;
   outline: 1 white;
+  overflow: hidden;
+  
 
 }
 

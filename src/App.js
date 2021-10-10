@@ -25,7 +25,7 @@ function App() {
              {/* <Route path="/Dashboard" component={Dashboard}/>
             <Route path="/product"  component={Product}/> */}
             <ProtectedRoute path="/homePage" component={HomePage} />
-            <Redirect to="/homePage" />
+            <Redirect to="/login" />
 
           </Switch>
         </div>

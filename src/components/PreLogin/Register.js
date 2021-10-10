@@ -29,7 +29,7 @@ function Register(props) {
 
 
         if (event.target.name === "username") {
-            setUserName(event.target.value);
+            setUserName(event.target.value.trim());
             // setUserNameFlag(false)
             setUserNameErrorMessage("")
 
@@ -37,7 +37,7 @@ function Register(props) {
         }
 
         if (event.target.name === "email") {
-            setEmail(event.target.value);
+            setEmail(event.target.value.trim());
             // setEmailFlag(false)
             setEmailErrorMessage("")
 
@@ -53,7 +53,7 @@ function Register(props) {
 
         }
         if (event.target.name === "password") {
-            setPassword(event.target.value);
+            setPassword(event.target.value.trim());
             // setPasswordFlag(false);
             setPasswordErrorMessage("")
 

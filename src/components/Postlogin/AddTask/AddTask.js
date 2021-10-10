@@ -57,16 +57,17 @@ function AddTask(props) {
                 <div>
                     <div className="captionhead"><h4>Add an Item </h4></div>
                     <form className="popupForm" >
-
-                        <input type="text" name="title" placeholder="Title" onChange={setAddHandle} required />
+                        
+                        <input className="inputbox" type="text" name="title" placeholder="Title" onChange={setAddHandle} required />
                         <br />
                         <br />
-                        <textarea type='text' placeholder='Description' name='describe' onChange={setAddHandle} value={description} required />
+                        <textarea className="inputbox" type='text' placeholder='Description' name='describe' onChange={setAddHandle} value={description} required />
                         <br />
                         <br />
 
                         <button className="addTaskbutton" onClick={addData} >Add </button>
                         <button className="addTaskbutton" onClick={cancelData}>Cancel</button>
+                   
 
                     </form>
                 </div>
